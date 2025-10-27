@@ -1,4 +1,6 @@
-//! A toggle button widget. An example can be found in widget-gallery/button in the floem examples.
+#![deny(missing_docs)]
+//! A slider widget. An example can be found in [widget-gallery/slider-types](https://github.com/lapce/floem/tree/main/examples/slider-types)
+//! in the floem examples.
 
 use std::ops::RangeInclusive;
 
@@ -42,9 +44,17 @@ prop_extractor! {
         edge_align: EdgeAlign,
     }
 }
-style_class!(pub SliderClass);
-style_class!(pub BarClass);
-style_class!(pub AccentBarClass);
+style_class!(
+    /// A class for styling a [Slider] view.
+    pub SliderClass
+);
+style_class!(
+    /// A class for styling a [Slider] bar.
+    pub BarClass);
+style_class!(
+    /// A class for styling a [Slider] accent bar.
+    pub AccentBarClass
+);
 
 prop_extractor! {
     BarStyle {
@@ -563,6 +573,7 @@ impl Slider {
     }
 }
 
+/// Represents a custom style for a [Slider]
 #[derive(Debug, Default, Clone)]
 pub struct SliderCustomStyle(Style);
 impl From<SliderCustomStyle> for Style {
@@ -584,6 +595,7 @@ impl CustomStylable<SliderCustomStyle> for Slider {
 }
 
 impl SliderCustomStyle {
+    /// Create new styles for [Slider]
     pub fn new() -> Self {
         Self::default()
     }
